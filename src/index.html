@@ -1,29 +1,43 @@
- <!DOCTYPE html>
-  <html>
-    <head>
-    </head>
-    <body>
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<div id="app">
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
+</div>
+<script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"> </script>
+
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
 <script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCM4M-DvWHTkCEQrPoa3NMFMgYb1iX10Ik",
-    authDomain: "uniapp-f29b6.firebaseapp.com",
-    databaseURL: "https://uniapp-f29b6.firebaseio.com",
-    projectId: "uniapp-f29b6",
-    storageBucket: "",
-    messagingSenderId: "442114580044",
-    appId: "1:442114580044:web:9567cb9237ee05fd"
+
+var firebaseConfig = {
+   
   };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var app = document.getElementById('app')
+
+var dbRef = firebase.database()
+
+var messageRef = dbRef.ref('message')
+
+messageRef.once('value').then(function(snap){
+
+  app.innerText = snap.val()
+
+});
+
+
 </script>
-      <script src="data.js"></script>
-    <script src="index.js"></script>
-    </body>
-  </html>
+
+  <script src="data.js"></script>
+  </body>
+</html>
