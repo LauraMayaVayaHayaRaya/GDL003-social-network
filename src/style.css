@@ -1,0 +1,73 @@
+body{
+  background: #5f2c82;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container img{
+border-radius: 50%;
+margin-left: 20%;
+margin-right: 20%;
+
+}
+
+.container{
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-family: 'Pacifico', cursive;
+
+  align-items: center;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: white;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: white;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: white;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: white;
+
+
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 1rem;
+
+}
+
+h1{
+  text-align: center;
+  color: white;
+}
+
+.bttn {
+  height: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  width: 16rem;
+}
+
+.bttnlog{
+  background-color: transparent;
+  height: 3rem;
+  border-color: white;
+  border-width: 3px;
+  border-radius: 0.5rem;
+  color: white;
+  left:50%;
+  right: 50%;
+  width: 16rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#root{
+  text-align: center;
+  color: white;
+}
