@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/azul-de-prusia/GDL003-social-network/issues"
   },
-  "homepage": "https://github.com/azul-de-prusia/GDL003-social-network#readme"
+  "homepage": "https://github.com/azul-de-prusia/GDL003-social-network#readme",
+  "dependencies": {
+    "firebase": "^6.3.0"
+  }
 }
