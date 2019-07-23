@@ -2,6 +2,40 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
+    <title></title>
+  </head>
+  <body>
+<div id="app">
+
+</div>
+<script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"> </script>
+
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+<script>
+
+var firebaseConfig = {
+   
+  };
+
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var app = document.getElementById('app')
+
+var dbRef = firebase.database()
+
+var messageRef = dbRef.ref('message')
+
+messageRef.once('value').then(function(snap){
+
+  app.innerText = snap.val()
+
+});
+
     <title>EducationApp</title>
     <link rel="stylesheet" href="style.css">
      <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
@@ -176,7 +210,13 @@ function toggleSignIn() {
 
 
 
+
 </script>
+
+
+  <script src="data.js"></script>
+  </body>
+</html>
 
 
     <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
@@ -189,3 +229,4 @@ function toggleSignIn() {
     <script scr= "main.js"> </script>
   </body>
 </html>
+

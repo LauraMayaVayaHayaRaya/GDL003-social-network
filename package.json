@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/azul-de-prusia/GDL003-social-network#readme",
   "dependencies": {
+
     "firebase": "^6.3.0"
+
   }
 }
