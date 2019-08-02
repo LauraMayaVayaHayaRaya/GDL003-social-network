@@ -1,232 +1,99 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-
-    <title></title>
-  </head>
-  <body>
-<div id="app">
-
-</div>
-<script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"> </script>
-
-<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
-
-<script>
-
-var firebaseConfig = {
-   
-  };
-
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-var app = document.getElementById('app')
-
-var dbRef = firebase.database()
-
-var messageRef = dbRef.ref('message')
-
-messageRef.once('value').then(function(snap){
-
-  app.innerText = snap.val()
-
-});
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EducationApp</title>
     <link rel="stylesheet" href="style.css">
-     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container" id= first >
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+	<section class="principal" id="principal"> 
+		<section class="container" id="first"> <!--Primer pantalla de Ingreso-->
+			<section class="section header">
+				<img src="img/edu.gif" alt="EducationAppLogo" class="img-radius">
+				<h1 class="logo-font">Education App</h1>
+			</section>
+			<form class="section">
+				<input type="email" name="email" id="email" class="input" placeholder="Ingresa Correo">
+				<input type="password" name="password" id="password" class="input" placeholder="Ingresa Contraseña">
+				<button class="button primary">Ingresar</button>
+			</form>
+			<section class="section">
+				<button type="button" class="button gmail" id="usericon"><img src="img/google-logo.svg" alt=""> Ingresa con Gmail</button>
+				<button type="button" class="button facebook" id="fbicon"><img src="img/facebook-logo.svg" alt=""> Ingresa con Fcebook></button>
+				<button type="button" class="button secundary" id="register">Crear una cuenta</button>
+			</section>
+		</section>
+		<section class="container" id="registerForm"> <!--Segunda pantalla con Formulario de Registro-->
+			<section class="section header">
+				<img src="img/edu.gif" alt="EducationAppLogo" class="img-radius">
+				<h1 class="logo-font">Education App</h1>
+			</section>
+			<form class="section">
+				<input type="text" name="nombre" id="nombre" class="input" placeholder="Ingresa tu nombre">
+				<input type="email" name="mailRegister" id="mailRegister" class="input" placeholder="Ingresa tu correo electrónico">
+				<input type="password" name="passwordRegister" id="passwordRegister" class="input" placeholder="Ingresa contraseña">
+				<input type="password" name="passwordConfirm" id="passwordConfirm" class="input" placeholder="Confirma contraseña">
+				<button type="button" class="button primary" id="register2">Registrar</button>
+			</form>
+		</section>
+  </section>	
 
-      <img src="edu.gif" style="width:10rem;height: 10rem;" alt="">
-        <h1>EducationApp</h1>
-          <input type="text" class="bttn" placeholder="Ingresa Correo" id = "email">
-          <br>
-              <input class="bttn"  placeholder="Ingresa Contraseña" type="password" id= "password">
+	<section class="wall" id="newsfeed"> <!--Tercera pantalla Muro de Red Social-->
+		<header>
+			<section>
+				<img src="img/edu.gif" alt="EducationAppLogo" class="img-radius">
+				<h1 class="logo-font">Education App</h1>
+			</section>	
+		</header>
+		<nav>
+			<a href="#"><img src="img/web.svg" alt="newsfeed"></a>
+			<a href="#"><img src="img/magnifying-glass.svg" alt="search"></a>
+			<a href="#"><img src="img/group.svg" alt="group"></a>
+			<a href="#"><img src="img/alarm.svg" alt="notifications"></a>
+			<a href="#"><img src="img/envelope.svg" alt="inbox"></a>
+      <a href="#"><img src="img/user1.svg" alt="profile"></a>
+      <button type="button" class="buttonLogOut" id="exit">SALIR</button>
+    </nav>
+    
+      <section id="wallNews">
 
-                <div id="root">
-                </div>
+      </section>
 
-                <button type="button" onclick=handleSignUp() class= "bttnlog" id= "register" name="button">Registrar</button>
+		<form class="card addPost">
+			<section class="cardImage">
+				<img src="img/user1.svg" alt="userPic">
+			</section>
+			<section class="cardContent">
+				<textarea name="post" id="post" cols="40" rows="5">¿Que quieres publicar hoy?</textarea>
+        <button class="button primary">Publicar</button>
+			</section>
+		</form>
+		<section class="cards">
+			<section class="card">
+					<section class="cardImage">
+							<img src="img/user1.svg" alt="userPic">
+						</section>
+						<section class="cardContent">
+							<h2>Coord. de Diseño Gráfico</h2>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusantium commodi blanditiis, consequatur culpa ea dignissimos, qui assumenda explicabo quae corrupti ipsam beatae facilis doloremque ipsum quisquam, quos fugiat voluptas.</p>
+							<img src="https://www.frogdesign.com/wp-content/uploads/2018/11/Amrita-Marino-FrogDesign-TechTrendsHeader-1440x810.gif" alt="">
+						</section>
+			</section>
+		</section>
+	</section>
 
-                <br>
-                <button type="button" onclick=toggleSignIn() class= "bttnlog" id= "register" name="button">Ingresar</button>
-                <br>
-                <button type="button" class= "bttnlog" id= "usericon" name="button">Ingresa con Gmail</button>
-                <button type="button" class="bttnlog" onclick="LoginFB()" id= "fbicon" name="button">ingresa con facebook</button>
+	
+	<script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
-<script>
-function handleSignUp() {
-  //OBTIENE LOS VALORES QUE INGRESO EN MIS CAMPOS DE TEXTO
-  var email = document.getElementById('email').value;
-  var password = document.getElementById('password').value;
-  //AGREGAMOS UNA CONDICIONAL PARA QUE MANDE UNA ALERTA SI EL VALOR ES MENOR A 4
-  if (email.length < 4) {
-    alert('Please enter an email address.');
-    return;
-  }
-  if (password.length < 4) {
-    alert('Please enter a password.');
-    return;
-  }
-// SE INICIA LA CREACIÓN DESPUÉS DE HABER OBTENIDO LOS VALORES, LA FUNCION RECIBE EMAIL Y PASSWORD
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then(function (user) {
-		console.log('¡Creamos al usuario!');
-// AQUÍ PODEMOS METER CUALQUIER OTRA COSA PARA MOSTRAR DESPUÉS DE QUE HAYA INGRESADO
+	<script defer src="./init-firebase.js"></script>
+	<!--<script type="module" src="app.js"></script>-->
+  <!--<script src= "main.js"> </script>-->
+  <script defer src="./auth.js"></script> 
 
-}) // CATCH NOS SIRVE PARA MOSTRAR CUALQUIER MENSAJE DE ERROR
-  .catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // [START_EXCLUDE]
-    if (errorCode == 'auth/weak-password') {
-      alert('The password is too weak.');
-    } else {
-      alert(errorMessage);
-    }
-    console.log(error);
-    // [END_EXCLUDE]
-  });
-
-  var user = firebase.auth().currentUser;
-
-if (user != null) {
-  var name = user.displayName;
-  var email = user.email;
-  var uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-                   // this value to authenticate with your backend server, if
-  console.log(email);                 // you have one. Use User.getToken() instead.
-}
-  // [END createwithemail]
-};
-
-//INGRESAR CON USUARIO YA REGISTRADO
-function toggleSignIn() {
-     if (firebase.auth().currentUser) {
-       // [START signout] VALUDA QUE HAYA UN USUARIO LOGUEADO
-       firebase.auth().signOut();
-       // [END signout]
-     } else { //VALIDA QUE LOS CAMPOS NO ESTÉN VACIOS
-
-       var email = document.getElementById('email').value;
-       var password = document.getElementById('password').value;
-       if (email.length < 4) {
-         alert('Please enter an email address.');
-         return;
-       }
-       if (password.length < 4) {
-         alert('Please enter a password.');
-         return;
-       }
-       // Sign in with email and pass.
-       // [START authwithemail]
-       // RECIBE LOS DATOS QUE SE INGRESARON Y VALIDA QUE ESTÉN EN LA BASE DE DATOS
-       firebase.auth().signInWithEmailAndPassword(email, password)
-       .then(function (user) {
-		console.log('Credenciales correctas, ¡bienvenido!');
-	   })
-     // CON CATCH MOSTRAMOS EL ERROR QUE HAYA OCURRIDO AL INGRESAR
-       .catch(function(error) {
-         // Handle Errors here.
-         var errorCode = error.code;
-         var errorMessage = error.message;
-         // [START_EXCLUDE]
-         if (errorCode === 'auth/wrong-password') {
-           alert('Wrong password.');
-         } else {
-           alert(errorMessage);
-         }
-         console.log(error);
-
-         // [END_EXCLUDE]
-       });
-       // [END authwithemail]
-     }
-   }
-
-// FUNCION PARA INGRESAR CON GOOGLE
-   document.getElementById("usericon").addEventListener('click', () => {
-
-     var provider = new firebase.auth.GoogleAuthProvider();
-// VERIFICAR EL PROVIDER SCOPE PARA DETECTAR ERROR DE INICIO
-     provider.addScope('https://www.googleapis.com/auth/drive.metadata.readonly');
-
-     firebase.auth().signInWithPopup(provider).then(function(result) {
-       // This gives you a Google Access Token. You can use it to access the Google API.
-       var token = result.credential.accessToken;
-       // The signed-in user info.
-       var user = result.user;
-       console.log('Ingreso con Google exitoso');
-       // ...
-     }).catch(function(error) {
-       // Handle Errors here.
-       var errorCode = error.code;
-       var errorMessage = error.message;
-       // The email of the user's account used.
-       var email = error.email;
-       // The firebase.auth.AuthCredential type that was used.
-       var credential = error.credential;
-       // ...
-     });
-
-
-   });
-
-   // FUNCION PARA INGRESAR CON FACEBOOK
-
-   function LoginFB(){
-     if(!firebase.auth().currentUser){
-       var provider = new firebase.auth.FacebookAuthProvider();
-       provider.addScope("public_profile");
-
-       firebase.auth().signInWithPopup(provider).then(function(result){
-         var token = result.credential.accessToken;
-         var user = result.user;
-
-         console.log(user.displayName);
-       }).catch(function(error){
-         var errorCode = error.code;
-         var errorMessage = error.message;
-         var email = error.email;
-         var credential = error.credential;
-
-         if (errorCode === 'auth/account-exists-with-different-credential'){
-           alert('es el mismo usuario');
-         }
-
-       });
-     }else {
-       firebase.auth().signOut();
-     }
-   }
-
-
-
-
-</script>
-
-
-  <script src="data.js"></script>
-  </body>
+</body>
 </html>
-
-
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
-
-    <script defer src="./init-firebase.js"></script>
-    <script type="module" src="app.js"></script>
-    <script scr= "auth.js"> </script>
-    <script scr= "main.js"> </script>
-  </body>
-</html>
-
